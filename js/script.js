@@ -9,6 +9,12 @@
 
 function addition() {
 	// your code goes here!
+    var inputA = parseFloat(document.getElementById('additionInput1').value)
+    var inputB = parseFloat(document.getElementById('additionInput2').value)
+    //var sumResult = inputA.value + inputB.value
+
+
+    alert(inputA + inputB);
 }
 
 /* --------------------------------------------------------- */
@@ -29,6 +35,20 @@ function addition() {
 
 function vowelCounter() {
 	// your code goes here!
+    var vowel = ['a','e','i','o','u'];
+    var text =  document.getElementById('vowelInput').value;
+    var char = text.split('');
+    var count = 0;
+
+    for( var x = 0; x<char.length; x++ ) {
+        for (var y = 0; y < vowel.length; y++) {
+            if (char[x] == vowel[y]) {
+                count++;
+            }
+        }
+    }
+
+  alert('That sentence has '+ count + ' vowels in it');
 }
 
 /* --------------------------------------------------------- */
@@ -56,13 +76,24 @@ function vowelCounter() {
 	write the functionality. You may need to define a variable or two.
 
 	For extra functionality, track the number of guesses the user has made, and print that as part of the result.
-*/ 
+*/
+var radNum = Math.floor((Math.random() * 100) + 1);
 
 function submit() {
-	
+    var guess = parseFloat(document.getElementById('numberGuess').value);
+    var result = document.getElementById("numberResult");
+    if(radNum > guess){
+        result.innerHTML= "Higher";
+    }else if(radNum < guess){
+        result.innerHTML= "Lower";
+    }else{
+        result.innerHTML= "You have won the game";
+    }
 }
 
 function reset() {
+   radNum = Math.floor((Math.random() * 100) + 1);
+   document.getElementById("numberResult").innerHTML = ("The game has been reset.");
 
 }
 
